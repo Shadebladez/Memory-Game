@@ -1,0 +1,11 @@
+C:\Users\Win10\source\repos\Projecten\Memory-Game\Memory-Game\bin\Debug\Memory-Game.exe.config
+C:\Users\Win10\source\repos\Projecten\Memory-Game\Memory-Game\bin\Debug\Memory-Game.exe
+C:\Users\Win10\source\repos\Projecten\Memory-Game\Memory-Game\bin\Debug\Memory-Game.pdb
+C:\Users\Win10\source\repos\Projecten\Memory-Game\Memory-Game\obj\Debug\Memory-Game.csprojAssemblyReference.cache
+C:\Users\Win10\source\repos\Projecten\Memory-Game\Memory-Game\obj\Debug\Memory_Game.Form1.resources
+C:\Users\Win10\source\repos\Projecten\Memory-Game\Memory-Game\obj\Debug\Memory_Game.Properties.Resources.resources
+C:\Users\Win10\source\repos\Projecten\Memory-Game\Memory-Game\obj\Debug\Memory-Game.csproj.GenerateResource.cache
+C:\Users\Win10\source\repos\Projecten\Memory-Game\Memory-Game\obj\Debug\Memory-Game.csproj.CoreCompileInputs.cache
+C:\Users\Win10\source\repos\Projecten\Memory-Game\Memory-Game\obj\Debug\Memory-Game.exe
+C:\Users\Win10\source\repos\Projecten\Memory-Game\Memory-Game\obj\Debug\Memory-Game.pdb
+C:\Users\Win10\source\repos\Projecten\Memory-Game\Memory-Game\obj\Debug\Memory_Game.highscore.resources
