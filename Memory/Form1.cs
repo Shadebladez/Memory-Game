@@ -20,7 +20,6 @@ namespace Memory
         int time = 60;
         Timer timer = new Timer { Interval = 1000 };
 
-
         public Form1()
         {
             InitializeComponent();
@@ -67,6 +66,57 @@ namespace Memory
             };
         }
 
+        private void ResetImages()
+        {
+            foreach (var pic in pictureBoxes)
+            {
+                pic.Tag = null;
+                pic.Visible = true;
+            }
+
+            HideImages();
+            setRandomImages();
+            time = 60;
+            timer.Start();
+        }
+
+        private void HideImages()
+        {
+            foreach (var pic in pictureBoxes)
+            {
+                pic.Image = Properties.Resources.question;
+            }
+        }
+
+        private PictureBox getFreeSlot()
+        {
+            int num;
+
+            do
+            {
+                num = rnd.Next(0, pictureBoxes.Count());
+            }
+            while (pictureBoxes[num].Tag != null);
+            return pictureBoxes[num];
+        }
+
+        private void setRandomImages()
+        {
+            foreach (var image in images)
+            {
+                getFreeSlot().Tag = image;
+                getFreeSlot().Tag = image;
+            }
+        }
+
+        private void CLICKTIMER_TICK(object sender, EventArgs e)
+        {
+            HideImages();
+
+            allowClick = true;
+            clickTimer.Stop();
+        }
+
         private void spelSluitenToolStripMenuItem_Click(object sender, EventArgs e)
         {
             Application.Exit();
@@ -74,7 +124,61 @@ namespace Memory
 
         private void pb_clicked(object sender, EventArgs e)
         {
-            PictureBox pb = (PictureBox)sender;
+            
+
         }
+
+        private void clickImage(object sender, EventArgs e)
+        {
+            if (!allowClick) return;
+
+            var pic = (PictureBox)sender;
+
+            if (firstGuess == null)
+            {
+                firstGuess = pic;
+                pic.Image = (Image)pic.Tag;
+                return;
+            }
+
+            pic.Image = (Image)pic.Tag;
+
+            if (pic.Image == firstGuess.Image && pic != firstGuess)
+            {
+                pic.Visible = firstGuess.Visible = false;
+                {
+                    firstGuess = pic;
+                }
+                HideImages();
+            }
+            else
+            {
+                allowClick = false;
+                clickTimer.Start();
+            }
+
+            firstGuess = null;
+            if (pictureBoxes.Any(p => p.Visible)) return;
+            MessageBox.Show("You win no try again");
+            ResetImages();
+        }
+
+        private void Form1_Load(object sender, EventArgs e)
+        {
+            
+        }
+
+        private void startGame(object sender, EventArgs e)
+        {
+            allowClick = true;
+            setRandomImages();
+            HideImages();
+            startGameTimer();
+            clickTimer.Interval = 1000;
+            clickTimer.Tick += CLICKTIMER_TICK;
+            btnStart.Enabled = false;
+        }
+
+        
     }
 }
